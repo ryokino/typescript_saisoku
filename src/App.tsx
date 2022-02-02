@@ -113,6 +113,19 @@ const PC3: PC = {
 	OSType: OS.Linux, // 勝手に数値が当てられてる。
 };
 
+//　型の互換性
+
+const comp1 = 'test'; // 具体的
+let comp2: string = comp1; // 抽象的なものに具体的なものを入れるのはOK 逆はNG
+
+// let comp3: string = 'test';
+// let comp4: 'test' = comp3;
+
+let funcComp1 = (x: number) => {};
+let funcComp2 = (x: string) => {};
+
+// funcComp1 = funcComp2 // 引数のdata型が違うので、代入できません！
+
 function App() {
 	return (
 		<div className='App'>
