@@ -2,7 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-const name = 'hello'; //リテラル型(今回のパターンでは 文字列リテラル と呼ぶ)
+const name3 = 'hello'; //リテラル型(今回のパターンでは 文字列リテラル と呼ぶ)
+const name5 = 'hello'; //リテラル型(今回のパターンでは 文字列リテラル と呼ぶ)
 
 let nameChange: string = 'Hello';
 let dummyNumber = 2;
@@ -125,6 +126,58 @@ let funcComp1 = (x: number) => {};
 let funcComp2 = (x: string) => {};
 
 // funcComp1 = funcComp2 // 引数のdata型が違うので、代入できません！
+
+// Generics　ジェネリックス reactの型宣言など
+interface GEN<T> {
+	item: T;
+}
+// GEN型はTを引数にとり、それをitemの型に当てている
+
+const gen0: GEN<string> = { item: 'hello' };
+// const gen1: GEN = { item: 'hello' }; // gen1 でエラー
+// const gen2: GEN<number> = { item: 'hello' }; // itemでエラー
+
+interface GEN1<T = string> {
+	// default
+	item: T;
+}
+const gen1: GEN1 = { item: 'hello' };
+
+// extendsを使って引数となる型を指定する
+interface GEN2<T extends string | number> {
+	item: T;
+}
+
+const gen4: GEN2<string> = { item: 'hello' };
+
+// 関数に対するgenerics
+function funcGen<T>(props: T) {
+	return { item: props };
+}
+
+const gen6 = funcGen<string>('test');
+const gen7 = funcGen<string | null>(null);
+
+function funcGen1<T extends string | null>(props: T) {
+	return { value: props };
+}
+
+const gen8 = funcGen1('hello');
+// const gen9 = funcGen1(9)
+
+interface Props {
+	price: number;
+}
+
+function funcGen3<T extends Props>(props: T) {
+	return { value: props.price };
+}
+
+const gen10 = funcGen3({ price: 10 });
+
+const funcGen4 = <T extends Props>(props: T) => {
+	return { value: props.price };
+};
 
 function App() {
 	return (
