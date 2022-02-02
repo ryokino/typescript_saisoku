@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Data from './data.json';
+import TestComponent from './TestComponent';
 
 // こうすると型取得が楽ちん！！
 type USERS = typeof Data;
@@ -183,12 +184,14 @@ const funcGen4 = <T extends Props>(props: T) => {
 	return { value: props.price };
 };
 
-function App() {
+const App: React.FC = () => {
 	return (
 		<div className='App'>
-			<header className='App-header'></header>
+			<header className='App-header'>
+				<TestComponent text='hello from app.tsx' />
+			</header>
 		</div>
 	);
-}
+};
 
 export default App;
