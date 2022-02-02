@@ -63,6 +63,13 @@ company = 'Amazon';
 let memory: 256 | 512;
 memory = 512;
 
+// typeof: 宣言済みの定数の型を取得する
+let msg1: string = 'hello';
+let msg2: typeof msg1;
+
+let animal = { cat: 'small cat' };
+let newAnumal: typeof animal = { cat: 'big cat' };
+
 function App() {
 	return (
 		<div className='App'>
