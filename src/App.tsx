@@ -1,6 +1,10 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Data from './data.json';
+
+// こうすると型取得が楽ちん！！
+type USERS = typeof Data;
 
 const name3 = 'hello'; //リテラル型(今回のパターンでは 文字列リテラル と呼ぶ)
 const name5 = 'hello'; //リテラル型(今回のパターンでは 文字列リテラル と呼ぶ)
