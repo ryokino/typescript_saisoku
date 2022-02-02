@@ -46,6 +46,14 @@ const userA: USER = {
 	password: 'yyy',
 };
 
+// Union Type: 変数が受け取れる型を
+let value: boolean | number;
+value = true;
+value = 3;
+
+let arrayUni: (number | string)[];
+arrayUni = [0, 1, 2, 'hello'];
+
 function App() {
 	return (
 		<div className='App'>
