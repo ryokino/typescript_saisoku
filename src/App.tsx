@@ -90,6 +90,28 @@ let keySports: keyof typeof SPORTS;
 keySports = 'baseball';
 // keyofは型宣言にのみ使えるが、これは具体的なオブジェクトに対して使える
 
+// enum: 自動で連番をつけてくれる機能
+enum OS {
+	Windows,
+	Mac,
+	Linux,
+}
+interface PC {
+	id: number;
+	OSType: OS;
+}
+const PC1: PC = {
+	id: 1,
+	OSType: OS.Windows,
+};
+const PC2: PC = {
+	id: 1,
+	OSType: OS.Mac,
+};
+const PC3: PC = {
+	id: 1,
+	OSType: OS.Linux, // 勝手に数値が当てられてる。
+};
 
 function App() {
 	return (
