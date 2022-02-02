@@ -63,12 +63,33 @@ company = 'Amazon';
 let memory: 256 | 512;
 memory = 512;
 
-// typeof: 宣言済みの定数の型を取得する
+// typeof: 宣言済みの定数の型を取得する -> jsonのdata typeを使うときに型が複雑でも簡単に使えるようになる
 let msg1: string = 'hello';
 let msg2: typeof msg1;
 
 let animal = { cat: 'small cat' };
 let newAnumal: typeof animal = { cat: 'big cat' };
+
+// keyof: どちらかのkeyをunion型で取得する。
+type KEYS = {
+	primary: string;
+	secondary: string;
+};
+
+let key: keyof KEYS;
+key = 'primary';
+
+// keyof + typeof
+
+const SPORTS = {
+	soccer: 'Soccer',
+	baseball: 'Baseball',
+};
+
+let keySports: keyof typeof SPORTS;
+keySports = 'baseball';
+// keyofは型宣言にのみ使えるが、これは具体的なオブジェクトに対して使える
+
 
 function App() {
 	return (
